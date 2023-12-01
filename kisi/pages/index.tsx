@@ -1,7 +1,7 @@
 import React from 'react'
-import Head from 'next'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
+import Head from 'next/head'
 
 export default function Home() {
   return (
