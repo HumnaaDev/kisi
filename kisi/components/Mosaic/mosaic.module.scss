@@ -23,6 +23,7 @@
 .mosaic {
     display: grid;
     height: 100%;
+    min-height: 900px;
     grid-template-rows: masonry;
     grid-template-columns:  repeat(6, 1fr);
     grid-gap: 20px;

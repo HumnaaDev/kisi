@@ -19,23 +19,24 @@
       height: 100%;
       backface-visibility: hidden;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: start;
+      align-items: start;
+      padding: 15px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
   
     .front {
-      background: url("/placeholder.png") center/cover;
+      background: url("/placeholder.webp") center/cover;
     }
   
     .back {
-      background: #eee; /* Background color for the back */
+      background-color: blue;
       transform: rotateY(180deg);
     }
   
     .overlay {
-      text-align: center;
-      color: #fff; /* Text color for the overlay */
+      text-align: start;
+      color: #fff;
     }
   
     h2 {

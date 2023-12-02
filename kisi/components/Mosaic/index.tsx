@@ -9,6 +9,7 @@ import img7 from '../../../images/image5.png'
 import img3 from '../../../images/image6.png'
 import { Button } from '../Button';
 import { calculateGridPosition } from '../../util';
+import Image from '../Image'
 
 const images = [
     img1, img2, '', img3, img4, img5, img6, img7
@@ -20,7 +21,10 @@ export const Mosaic = () => {
         <div className={styles['mosaic']}>
             <div className={styles["heading"]}>Connect People and spaces</div>
             {
-                images.map((img, index) => <img key={index} className={`${styles["mosaic-item"]} `} style={calculateGridPosition(index)} src={img.src}/>)
+                images.map((img, index) => 
+                    <div className={`${styles["mosaic-item"]}`} style={calculateGridPosition(index)} >
+                        <Image title={'title'} description={'description'} imageUrl={img.src} />
+                    </div>)
             }
             <Button name="Add New Image" type="button"/>
         </div>

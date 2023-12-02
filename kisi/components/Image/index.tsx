@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./image.module.scss";
 
-const Image = ({ title, description, imageUrl }) => {
+const Image = ({ title, description, imageUrl}) => {
   return (
     <div className={styles["box"]}>
       <div
         className={styles["front"]}
-        style={{ backgroundImage: url(${imageUrl}) }}
+        style={{ backgroundImage: `url(${imageUrl})` }}
       >
         <div className={styles["overlay"]}>
           <h2>{title}</h2>
