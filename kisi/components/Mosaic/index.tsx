@@ -12,15 +12,36 @@ const images = [
     img1, img2, '', img3, img4, img5, img6, img7
 ]
 
+  const calculateGridPosition = (index) => {
+    const patterns = [
+      [1, 2],
+      [2, 2],
+      [2, 2],
+      [1, 1],
+      [1, 1],
+      [2, 2],
+      [1, 2],
+      [1, 2],
+    ];
+  
+    const patternIndex = index % patterns.length;
+    const [rowSpan, colSpan] = patterns[patternIndex];
+  
+    return {
+      gridRow: index === 0 ? '2 / span 1': `span ${rowSpan}`,
+      gridColumn: `span ${colSpan}`,
+    };
+  };
+
 export const Mosaic = () => {
   return (
     <div className={styles['main-container']}>
         <div className={styles['mosaic']}>
             {
-                images.map((img, index) => <img className={`${styles["mosaic-item"]} ${styles[`img${index + 1}`]}`} src={img.src}/>)
+                images.map((img, index) => <img key={index} className={`${styles["mosaic-item"]} `} style={calculateGridPosition(index)} src={img.src}/>)
             }
+            <button>Add New Image</button>
         </div>
-        <button>Add New Image</button>
     </div>
    
   );
