@@ -10,7 +10,7 @@ const Image = ({ title, description, imageUrl }) => {
         className={styles["front"]}
         style={{ background: `url(${imageUrl}) center/cover` }}
       >
-        <div className={styles["overlay"]}>
+        <div className={styles["overlay-front"]}>
           <div>
             <h2>{title}</h2>
           </div>
@@ -20,7 +20,7 @@ const Image = ({ title, description, imageUrl }) => {
         </div>
       </div>
       <div className={styles["back"]}>
-        <div className={styles["overlay"]}>
+        <div className={styles["overlay-back"]}>
           <h2>{title}</h2>
           <p>{description}</p>
         </div>

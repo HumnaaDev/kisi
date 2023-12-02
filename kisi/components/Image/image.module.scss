@@ -19,7 +19,6 @@
     height: 100%;
     backface-visibility: hidden;
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -29,11 +28,10 @@
     background-color: #4a52ff;
     transform: rotateY(180deg);
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
   }
 
-  .overlay {
+  .overlay-front {
     text-align: flex-start;
     color: #fff;
     height: 100%;
@@ -42,6 +40,16 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .overlay-back {
+    text-align: flex-start;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+  }
+
 
   h2 {
     margin: 0;
@@ -54,6 +62,7 @@
   }
   
   .icon {
+    width: 100%;
     display: flex;
     justify-content: flex-end;
   }
