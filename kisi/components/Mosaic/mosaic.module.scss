@@ -1,3 +1,9 @@
+.heading {
+    color: white;
+    grid-column: span 2;
+    font-size: large;
+}
+
 .main-container {
     padding: 10%;
     flex: 1 1 80%;
