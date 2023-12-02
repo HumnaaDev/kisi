@@ -1,0 +1,59 @@
+.main-container {
+    padding: 10%;
+    flex: 1 1 80%;
+    min-height: 100vh;
+}
+
+.mosaic-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+	height: 100%;
+	object-fit: cover;
+    &.img1 {
+        grid-row: 2 / span 1;
+        grid-column: span 2;
+    }
+    &.img2 {
+        grid-row: span 2;
+        grid-column: span 2;
+    }
+    &.img3 {
+        grid-row: span 2;
+        grid-column: span 2;
+    }
+    &.img4 {
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+    &.img5 {
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+    &.img6 {
+        grid-row: span 2;
+        grid-column: span 2;
+    }
+    &.img7 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    &.img8 {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+}
+
+.mosaic {
+    display: grid;
+    height: 100%;
+    grid-template-rows: masonry;
+    grid-template-columns:  repeat(6, 1fr);
+    grid-gap: 20px;
+}
+
+  
+
+  
+  
