@@ -2,6 +2,11 @@ import React from "react";
 import styles from "./image.module.scss";
 
 const Image = ({ title, description, imageUrl}) => {
+  console.log('test', imageUrl)
+  if(imageUrl === undefined) {
+    return <div></div>
+  }
+
   return (
     <div className={styles["box"]}>
       <div

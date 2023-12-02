@@ -12,7 +12,7 @@ import { calculateGridPosition } from '../../util';
 import Image from '../Image'
 
 const images = [
-    img1, img2, '', img3, img4, img5, img6, img7
+    img1, img2, '', img3, img4, img5, img6, img7 
 ]
 
 export const Mosaic = () => {
