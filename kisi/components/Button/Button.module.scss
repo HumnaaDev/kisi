@@ -1,0 +1,15 @@
+.rounded-button {
+    background-color: #4A52FF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    height: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  
+    &:hover {
+      background-color: #3941A1;
+    }
+  }
