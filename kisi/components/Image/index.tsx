@@ -3,9 +3,9 @@ import styles from "./image.module.scss";
 import ChevronRight from "../../assets/icons/chevron-right.svg";
 
 interface IImageProps {
-  title: string
-  description: string
-  imageUrl: string
+  title: string;
+  description: string;
+  imageUrl: string;
 }
 
 export const Image: FC<IImageProps> = ({ title, description, imageUrl }) => {
@@ -20,15 +20,17 @@ export const Image: FC<IImageProps> = ({ title, description, imageUrl }) => {
   };
 
   return (
-    <div 
-      data-testid='image-container'
-      className={styles["box"]} 
+    <div
+      data-testid="image-container"
+      className={styles["box"]}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <div
-        className={styles[isHovered ? "back": "front"]}
-        style={{ background: isHovered ? '#4a52ff': `url(${imageUrl}) center/cover` }}
+        className={styles[isHovered ? "back" : "front"]}
+        style={{
+          background: isHovered ? "#4a52ff" : `url(${imageUrl}) center/cover`,
+        }}
       >
         <div className={styles["overlay"]}>
           <div>
@@ -43,4 +45,3 @@ export const Image: FC<IImageProps> = ({ title, description, imageUrl }) => {
     </div>
   );
 };
-
