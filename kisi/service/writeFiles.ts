@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { dataUriToBuffer } from "../utils/dataUriToBuffer";
 
-export const saveFile = (imageName, dataUri) => {
+export const saveFile = (imageName: string, dataUri): boolean => {
   const publicPath = path.join(process.cwd(), "public/DB/images");
   const imagePath = path.join(publicPath, imageName);
 

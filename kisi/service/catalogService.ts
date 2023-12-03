@@ -5,16 +5,22 @@ import { logger } from "../utils/logger";
 const imagesUrl = "/api/images";
 
 export const CatalogService = {
-  getCatalog: async () => {
-    const response = await fetcher<Array<ICatalog>>(imagesUrl, {
-      method: "GET",
-    });
+  getCatalog: async (): Promise<ICatalog[]> => {
+    try {
+      const response = await fetcher<Array<ICatalog>>(imagesUrl, {
+        method: "GET",
+      });
 
-    if (!response.success) {
-      logger.warn("no data recieved from service");
-      return [];
+      if (!response.success) {
+        logger.warn("no data recieved from service");
+        return [];
+      }
+
+      return response.result;
+    } catch (error) {
+      console.error("An error occurred while getting catalog:", error);
+      return null;
     }
-    return response.result;
   },
   saveCatalog: async (catalogData) => {
     try {

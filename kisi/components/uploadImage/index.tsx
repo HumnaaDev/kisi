@@ -16,6 +16,21 @@ export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
     }
   };
 
+  const handleFileLoad = async (e, file) => {
+    const dataUri = e.target.result;
+
+    const resp = await CatalogService.saveCatalog(
+      JSON.stringify({
+        image: dataUri,
+        name: file.name,
+      }),
+    );
+
+    if (resp) {
+      onUpload();
+    }
+  }
+
   const handleFileChange = async (event) => {
     try {
       const file = event.target.files[0];
@@ -23,20 +38,7 @@ export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
       if (file) {
         const reader = new FileReader();
 
-        reader.onload = async function (e) {
-          const dataUri = e.target.result;
-
-          const resp = await CatalogService.saveCatalog(
-            JSON.stringify({
-              image: dataUri,
-              name: file.name,
-            }),
-          );
-
-          if (resp.success) {
-            onUpload();
-          }
-        };
+        reader.onload = (e) => handleFileLoad(e, file); 
         reader.readAsDataURL(file);
       }
     } catch (error) {

@@ -2,10 +2,11 @@ const fs = require("fs");
 import path from "path";
 import article from "../data/articles.json";
 import { associateImagesWithArticle } from "../utils/associateImagesWithArticle";
+import { ICatalog } from "../types/catalog";
 
 const directoryPath = path.join(process.cwd(), "public/DB/images");
 
-export const getFiles = async () => {
+export const getFiles = async (): Promise<ICatalog[]> => {
   const files = await new Promise((resolve, reject) => {
     fs.readdir(directoryPath, (err, files) => {
       if (err) {
