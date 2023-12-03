@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./mosaic.module.scss";
-import { Button } from "../Button";
+import { UploadImage } from "../uploadImage";
 import { calculateGridPosition } from "../../util/calculateGridPosition";
 import Image from "../Image";
 
@@ -35,7 +35,7 @@ export const Mosaic = () => {
             />
           </div>
         ))}
-        <Button onUpload={getImages} name="Add New Image" type="button" />
+        <UploadImage onUpload={getImages} name="Upload New Image" />
         </>: <div className={styles["loading"]}>Loading ...</div>}
       </div>
     </div>

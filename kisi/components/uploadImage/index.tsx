@@ -1,13 +1,12 @@
 import { FC, useRef } from "react";
-import styles from "./Button.module.scss";
+import styles from "./uploadImage.module.scss";
 
-interface IButtonProps {
+interface IUploadImageProps {
   name: string;
-  type: "button" | "submit" | "reset";
   onUpload: () => void;
 }
 
-export const Button: FC<IButtonProps> = ({ name, type, onUpload }) => {
+export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
   const fileRef = useRef(null);
 
   const onButtonClick = () => {
@@ -18,15 +17,13 @@ export const Button: FC<IButtonProps> = ({ name, type, onUpload }) => {
 
   const handleFileChange = async (event) => {
     try {
-      const fileInput = event.target;
-      const file = fileInput.files[0];
+      const file = event.target.files[0];
 
       if (file) {
         const reader = new FileReader();
 
         reader.onload = async function (e) {
-            const dataUri = e.target.result;
-            const fileName = file.name;
+          const dataUri = e.target.result;
             
           const resp = await fetch("/api/images", {
             method: "POST",
@@ -59,7 +56,7 @@ export const Button: FC<IButtonProps> = ({ name, type, onUpload }) => {
       <button
         onClick={onButtonClick}
         className={styles["rounded-button"]}
-        type={type}
+        type='button'
       >
         {name}
       </button>
