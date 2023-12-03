@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./mosaic.module.scss";
 import { Button } from "../Button";
-import { calculateGridPosition } from "../../util";
+import { calculateGridPosition } from "../../util/calculateGridPosition";
 import Image from "../Image";
 
 export const Mosaic = () => {
-  const [catalogs, setCatalogs] = useState([]);
+  const [catalog, setCatalog] = useState([]);
 
   useEffect(() => {
     getImages();
@@ -14,15 +14,15 @@ export const Mosaic = () => {
   const getImages = async () => {
     const response = await fetch("/api/images");
     const data = await response.json();
-    setCatalogs(data);
+    setCatalog(data);
   };
 
   return (
     <div className={styles["main-container"]}>
       <div className={styles["mosaic"]}>
-        {catalogs?.length > 0 ?<>
+        {catalog?.length > 0 ?<>
         <div className={styles["heading"]}>Connect People and spaces</div>
-        {catalogs.map((catalog, index) => (
+        {catalog.map((catalog, index) => (
           <div
             key={index}
             className={`${styles["mosaic-item"]}`}
