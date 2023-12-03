@@ -30,7 +30,7 @@ export const Image: FC<IImageProps> = ({ title, description, imageUrl }) => {
         className={styles[isHovered ? "back": "front"]}
         style={{ background: isHovered ? '#4a52ff': `url(${imageUrl}) center/cover` }}
       >
-        <div className={styles[isHovered ? "overlay-back" : "overlay-front"]}>
+        <div className={styles["overlay"]}>
           <div>
             <h2>{title}</h2>
             {isHovered && <p data-testid="description">{description}</p>}
