@@ -51,6 +51,7 @@ export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
         ref={fileRef}
         type="file"
         style={{ display: "none" }}
+        data-testid="file-input"
       />
       <button
         onClick={onButtonClick}
