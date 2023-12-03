@@ -1,9 +1,12 @@
 const fs = require("fs");
 import path from "path";
+import article from '../data/articles.json'
+import { associateImagesWithArticle } from "../util/associateImagesWithArticle";
 
 const directoryPath = path.join(process.cwd(), "public/DB/images");
 
 export const getFiles = async () => {
+
   const files = await new Promise((resolve, reject) => {
     fs.readdir(directoryPath, (err, files) => {
       if (err) {
@@ -20,5 +23,8 @@ export const getFiles = async () => {
       );
     });
   });
-  return files;
+
+  //associate images to articles
+  const data = associateImagesWithArticle(files, article)
+  return data;
 };
