@@ -9,7 +9,7 @@ type FetcherResponse<T> =
 
 export const fetcher = async <T>(
   url: string,
-  init: RequestInit
+  init: RequestInit,
 ): Promise<FetcherResponse<T>> => {
   try {
     const response = await fetch(url, init);

@@ -25,18 +25,19 @@ export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
 
         reader.onload = async function (e) {
           const dataUri = e.target.result;
-            
-          const resp = await CatalogService.saveCatalog(JSON.stringify({
-            image: dataUri,
-            name: file.name,
-          }))
+
+          const resp = await CatalogService.saveCatalog(
+            JSON.stringify({
+              image: dataUri,
+              name: file.name,
+            }),
+          );
 
           if (resp.success) {
             onUpload();
           }
         };
         reader.readAsDataURL(file);
-
       }
     } catch (error) {
       console.error("Error reading file:", error);
@@ -54,7 +55,7 @@ export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
       <button
         onClick={onButtonClick}
         className={styles["rounded-button"]}
-        type='button'
+        type="button"
       >
         {name}
       </button>

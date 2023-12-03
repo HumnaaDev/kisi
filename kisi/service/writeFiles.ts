@@ -6,7 +6,7 @@ export const saveFile = (imageName, dataUri) => {
   const publicPath = path.join(process.cwd(), "public/DB/images");
   const imagePath = path.join(publicPath, imageName);
 
-  const imageBuffer = dataUriToBuffer(dataUri)
+  const imageBuffer = dataUriToBuffer(dataUri);
   try {
     fs.writeFileSync(imagePath, imageBuffer);
     return true;
@@ -14,4 +14,4 @@ export const saveFile = (imageName, dataUri) => {
     console.error("Error generating file:", error);
     return false;
   }
-}
+};

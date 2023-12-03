@@ -1,9 +1,8 @@
 import React from "react";
 import styles from "./image.module.scss";
-import ChevronRight from '../../assets/icons/chevron-right.svg'
+import ChevronRight from "../../assets/icons/chevron-right.svg";
 
 const Image = ({ title, description, imageUrl }) => {
-
   return (
     <div className={styles["box"]}>
       <div
@@ -15,8 +14,8 @@ const Image = ({ title, description, imageUrl }) => {
             <h2>{title}</h2>
           </div>
           <div className={styles["icon"]}>
-          <img src={ChevronRight.src} />
-        </div>
+            <img src={ChevronRight.src} />
+          </div>
         </div>
       </div>
       <div className={styles["back"]}>
