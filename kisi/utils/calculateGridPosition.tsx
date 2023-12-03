@@ -1,4 +1,4 @@
-export const calculateGridPosition = (index) => {
+export const calculateGridPosition = (index): { gridRow: string, gridColumn: string } => {
   const patterns = [
     [1, 2],
     [2, 2],
