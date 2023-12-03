@@ -1,8 +1,14 @@
-import React from "react";
+import React, { FC } from "react";
 import styles from "./image.module.scss";
 import ChevronRight from "../../assets/icons/chevron-right.svg";
 
-const Image = ({ title, description, imageUrl }) => {
+interface IImageProps {
+  title: string
+  description: string
+  imageUrl: string
+}
+
+export const Image: FC<IImageProps> = ({ title, description, imageUrl }) => {
   return (
     <div className={styles["box"]}>
       <div
@@ -31,4 +37,3 @@ const Image = ({ title, description, imageUrl }) => {
   );
 };
 
-export default Image;
