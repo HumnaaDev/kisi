@@ -29,6 +29,22 @@ $white-color: #ffffff;
   grid-template-rows: masonry;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 20px;
+
+   @media (max-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 400px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .loading {
