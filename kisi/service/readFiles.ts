@@ -17,7 +17,7 @@ export const getFiles = async (): Promise<ICatalog[]> => {
 
       resolve(
         files.map((file, index) => {
-          console.log(`${index + 1}. ${file}`);
+          console.log(`${index + 1}.${file}`);
           return file;
         }),
       );
