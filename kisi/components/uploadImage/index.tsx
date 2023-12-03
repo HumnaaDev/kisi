@@ -1,5 +1,6 @@
 import { FC, useRef } from "react";
 import styles from "./uploadImage.module.scss";
+import { CatalogService } from "../../service/catalogService";
 
 interface IUploadImageProps {
   name: string;
@@ -25,15 +26,12 @@ export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
         reader.onload = async function (e) {
           const dataUri = e.target.result;
             
-          const resp = await fetch("/api/images", {
-            method: "POST",
-            body: JSON.stringify({
-              image: dataUri,
-              name: file.name,
-            }),
-          });
+          const resp = await CatalogService.saveCatalog(JSON.stringify({
+            image: dataUri,
+            name: file.name,
+          }))
 
-          if (resp.ok) {
+          if (resp.success) {
             onUpload();
           }
         };

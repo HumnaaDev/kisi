@@ -1,7 +1,7 @@
 const fs = require("fs");
 import path from "path";
 import article from '../data/articles.json'
-import { associateImagesWithArticle } from "../util/associateImagesWithArticle";
+import { associateImagesWithArticle } from "../utils/associateImagesWithArticle";
 
 const directoryPath = path.join(process.cwd(), "public/DB/images");
 
