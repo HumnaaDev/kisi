@@ -3,7 +3,7 @@ import path from "path";
 import { dataUriToBuffer } from "../utils/dataUriToBuffer";
 
 export const saveFile = (imageName: string, dataUri): boolean => {
-  const publicPath = path.join(process.cwd(), "public/DB/images");
+  const publicPath = path.join(process.cwd(), "pages/api/DB/images");
   const imagePath = path.join(publicPath, imageName);
 
   const imageBuffer = dataUriToBuffer(dataUri);

@@ -2,29 +2,25 @@ const fs = require("fs");
 import path from "path";
 import article from "../data/articles.json";
 import { associateImagesWithArticle } from "../utils/associateImagesWithArticle";
-import { ICatalog } from "../types/catalog";
 
-const directoryPath = path.join(process.cwd(), "public/DB/images");
+const directoryPath = path.join(process.cwd(), "pages/api/DB/images");
 
-export const getFiles = async (): Promise<ICatalog[]> => {
-  const files = await new Promise((resolve, reject) => {
-    fs.readdir(directoryPath, (err, files) => {
-      if (err) {
-        console.error("Error reading directory:", err);
-        reject();
-        return;
-      }
+export const getFiles = async () => {
+  try {
+    const files = fs.readdirSync(directoryPath);
+    const imageFiles = files.filter(file => /\.(jpg|jpeg|png|gif)$/i.test(file));
+    const imageBase64Map = {};
 
-      resolve(
-        files.map((file, index) => {
-          console.log(`${index + 1}.${file}`);
-          return file;
-        }),
-      );
+    imageFiles.forEach(file => {
+      const filePath = path.join(directoryPath, file);
+      const fileContent = fs.readFileSync(filePath, { encoding: 'base64' });
+      imageBase64Map[file] = fileContent;
     });
-  });
 
-  //associate images to articles
-  const data = associateImagesWithArticle(files, article);
-  return data;
+    const associatedData = associateImagesWithArticle(imageBase64Map, article);
+    return associatedData
+  } catch (error) {
+    console.error('Error reading directory:', error.message);
+    return null;
+  }
 };
