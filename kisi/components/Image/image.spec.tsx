@@ -3,20 +3,22 @@ import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import { Image } from './index';
 
+describe("Image", () => {
+
 const mockProps = {
   title: 'Test Title',
   description: 'Test Description',
   imageUrl: '/img.jpg',
 };
 
-test('renders image component', () => {
+test('should renders image component', () => {
   render(<Image {...mockProps} />);
 
   expect(screen.getByText(mockProps.title)).toBeInTheDocument();
   expect(screen.getByAltText('icon')).toBeInTheDocument();
 });
 
-test('renders image component with description on hover', () => {
+test('should renders image component with description on hover', () => {
   const { getByText, getByTestId } = render(<Image {...mockProps} />);
 
   fireEvent.mouseEnter(getByText(mockProps.title));
@@ -27,3 +29,5 @@ test('renders image component with description on hover', () => {
 
   expect(description).not.toBeInTheDocument();
 });
+
+})
