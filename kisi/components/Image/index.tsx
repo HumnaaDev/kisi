@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import styles from "./image.module.scss";
 import ChevronRight from "../../assets/icons/chevron-right.svg";
 
@@ -9,28 +9,35 @@ interface IImageProps {
 }
 
 export const Image: FC<IImageProps> = ({ title, description, imageUrl }) => {
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
-    <div className={styles["box"]}>
+    <div 
+      data-testid='image-container'
+      className={styles["box"]} 
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <div
-        className={styles["front"]}
-        style={{ background: `url(${imageUrl}) center/cover` }}
+        className={styles[isHovered ? "back": "front"]}
+        style={{ background: isHovered ? '#4a52ff': `url(${imageUrl}) center/cover` }}
       >
-        <div className={styles["overlay-front"]}>
+        <div className={styles[isHovered ? "overlay-back" : "overlay-front"]}>
           <div>
             <h2>{title}</h2>
+            {isHovered && <p data-testid="description">{description}</p>}
           </div>
           <div className={styles["icon"]}>
-            <img src={ChevronRight.src} />
+            <img alt="icon" src={ChevronRight.src} />
           </div>
-        </div>
-      </div>
-      <div className={styles["back"]}>
-        <div className={styles["overlay-back"]}>
-          <h2>{title}</h2>
-          <p>{description}</p>
-        </div>
-        <div className={styles["icon"]}>
-          <img src={ChevronRight.src} />
         </div>
       </div>
     </div>

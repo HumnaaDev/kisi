@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./mosaic.module.scss";
 import { UploadImage } from "../uploadImage";
 import { calculateGridPosition } from "../../utils/calculateGridPosition";
-import Image from "../Image";
+import { Image } from "../Image";
 import { CatalogService } from "../../service/catalogService";
 
 export const Mosaic = () => {
