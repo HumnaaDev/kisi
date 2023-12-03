@@ -1,6 +1,9 @@
+$primary-color: #4a52ff;
+$white-color: #ffffff;
+
 .rounded-button {
-  background-color: #4a52ff;
-  color: #fff;
+  background-color: $primary-color;
+  color: $white-color;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
@@ -10,6 +13,6 @@
   transition: background-color 0.3s ease-in-out;
 
   &:hover {
-    background-color: #3941a1;
+    background-color: $primary-color;
   }
 }
