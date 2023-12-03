@@ -3,8 +3,6 @@ import { Mosaic } from "../components/Mosaic";
 
 export default function Home() {
   return (
-    <div>
       <Mosaic />
-    </div>
   );
 }
