@@ -9,7 +9,7 @@ interface IUploadImageProps {
 
 export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
   const fileRef = useRef(null);
-  const [ isLoading, setIsLoading ] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const onButtonClick = () => {
     if (fileRef.current) {
@@ -19,7 +19,7 @@ export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
 
   const handleFileLoad = async (e, file) => {
     const dataUri = e.target.result;
-    setIsLoading(true)
+    setIsLoading(true);
     const resp = await CatalogService.saveCatalog(
       JSON.stringify({
         image: dataUri,
@@ -29,9 +29,9 @@ export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
 
     if (resp) {
       onUpload();
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   const handleFileChange = async (event) => {
     try {
@@ -40,7 +40,7 @@ export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
       if (file) {
         const reader = new FileReader();
 
-        reader.onload = (e) => handleFileLoad(e, file); 
+        reader.onload = (e) => handleFileLoad(e, file);
         reader.readAsDataURL(file);
       }
     } catch (error) {
@@ -63,7 +63,7 @@ export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
         type="button"
         disabled={isLoading}
       >
-        {isLoading ? 'Uploading...' : name}
+        {isLoading ? "Uploading..." : name}
       </button>
     </>
   );

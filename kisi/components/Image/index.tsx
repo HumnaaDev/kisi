@@ -20,8 +20,8 @@ export const Image: FC<IImageProps> = ({ title, description, imageUrl }) => {
   };
 
   const getImage = (base64) => {
-    return `data:image/jpg;base64,${base64}`
-  }
+    return `data:image/jpg;base64,${base64}`;
+  };
 
   return (
     <div
@@ -33,7 +33,9 @@ export const Image: FC<IImageProps> = ({ title, description, imageUrl }) => {
       <div
         className={styles[isHovered ? "back" : "front"]}
         style={{
-          background: isHovered ? "#4a52ff" : `url(${getImage(imageUrl)}) center/cover`,
+          background: isHovered
+            ? "#4a52ff"
+            : `url(${getImage(imageUrl)}) center/cover`,
         }}
       >
         <div className={styles["overlay"]}>
