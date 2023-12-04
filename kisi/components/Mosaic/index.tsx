@@ -14,8 +14,8 @@ export const Mosaic = () => {
 
   const getImages = async () => {
     const data = await CatalogService.getCatalog();
-    const tempArray = [...data]
-    tempArray.splice(2, 0, { title: '', description: '', image: ''});
+    const tempArray = [...data];
+    tempArray.splice(2, 0, { title: "", description: "", image: "" });
     setCatalog(tempArray);
   };
 

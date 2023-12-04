@@ -9,9 +9,8 @@ interface IImageProps {
 }
 
 export const Image: FC<IImageProps> = ({ title, description, imageUrl }) => {
-
-  if(title === '') {
-    return <div></div>
+  if (title === "") {
+    return <div></div>;
   }
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
