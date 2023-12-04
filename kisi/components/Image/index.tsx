@@ -9,9 +9,6 @@ interface IImageProps {
 }
 
 export const Image: FC<IImageProps> = ({ title, description, imageUrl }) => {
-  if (title === "") {
-    return <div />;
-  }
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const handleMouseEnter = () => {
@@ -25,6 +22,10 @@ export const Image: FC<IImageProps> = ({ title, description, imageUrl }) => {
   const getImage = (base64) => {
     return `data:image/jpg;base64,${base64}`;
   };
+
+  if (title === "") {
+    return <div />;
+  }
 
   return (
     <div
