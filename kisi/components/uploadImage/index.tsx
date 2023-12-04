@@ -1,4 +1,4 @@
-import { FC, useRef } from "react";
+import { FC, useRef, useState } from "react";
 import styles from "./uploadImage.module.scss";
 import { CatalogService } from "../../service/catalogService";
 
@@ -9,6 +9,7 @@ interface IUploadImageProps {
 
 export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
   const fileRef = useRef(null);
+  const [ isLoading, setIsLoading ] = useState<boolean>(false)
 
   const onButtonClick = () => {
     if (fileRef.current) {
@@ -18,7 +19,7 @@ export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
 
   const handleFileLoad = async (e, file) => {
     const dataUri = e.target.result;
-
+    setIsLoading(true)
     const resp = await CatalogService.saveCatalog(
       JSON.stringify({
         image: dataUri,
@@ -28,6 +29,7 @@ export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
 
     if (resp) {
       onUpload();
+      setIsLoading(false)
     }
   }
 
@@ -59,8 +61,9 @@ export const UploadImage: FC<IUploadImageProps> = ({ name, onUpload }) => {
         onClick={onButtonClick}
         className={styles["rounded-button"]}
         type="button"
+        disabled={isLoading}
       >
-        {name}
+        {isLoading ? 'Uploading...' : name}
       </button>
     </>
   );
